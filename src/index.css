@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text {
+    background: #3C50D4;
+    background: linear-gradient(to right, #3C50D4 4%, #D95594 35%, #D95594 36%, #D95594 56%, #D95594 32%, #3C50D4 97%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce {
+    animation: bounce 0.5s;
+}
+
+
+
+/* Responsive table styles */
+.responsive-table {
+    display: block;
+    /* Ensure table is treated as a block for responsiveness */
+    width: 100%;
+    /* Ensure full width */
+    overflow-x: auto;
+    /* Enable horizontal scrolling if needed */
+}
+
+th,
+td {
+    white-space: nowrap;
+    /* Prevent wrapping of content */
+    overflow: hidden;
+    /* Truncate content if it overflows */
+    text-align: left;
+    /* Set default text alignment */
+
+    /* Adapt column widths and spacing for responsiveness */
+    flex: 1 0 auto;
+    /* Consider flexbox for flexible column widths */
+    padding: 0.5rem 1rem;
+    /* Adjust padding based on screen sizes */
+}
+
+@media (max-width: 768px) {
+
+    /* More responsive styles for smaller screens */
+    th,
+    td {
+        font-size: 0.8rem;
+        /* Adjust font size as needed */
+    }
+
+    /* Consider collapsing or hiding columns */
+    .short-url,
+    .original-url {
+        display: none;
+        /* Hide original URL on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Additional styles for very small screens */
+    .date {
+        display: none;
+        /* Hide date on very small screens */
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Additional adjustments for even smaller screens */
+    .w-full {
+        font-size: 0.7rem;
+        /* Adjust as needed */
+    }
+
+    /* Consider collapsing columns or using flexbox for more complex layouts */
+}
