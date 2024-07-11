@@ -26,11 +26,10 @@ export default function Hero() {
             setErrorMessage('Your Link is invalid.');
             return;
         }
-
         setErrorMessage('');
         try {
-            const response = await axios.post('http://localhost:8000/url', { url });
-            setShortenedUrl(`http://localhost:8000/shorten/${response.data.id}`);
+            const response = await axios.post(import.meta.env.VITE_BASEURL, { url });
+            setShortenedUrl(import.meta.env.VITE_SHORTURL + response.data.id);
         } catch (error) {
             console.error('Error shortening the URL:', error);
             setErrorMessage('Failed to shorten the URL.');
@@ -52,7 +51,7 @@ export default function Hero() {
         <main className='mb-10'>
             <div className="h-full relative flex flex-col flex-1 shrink-0 items-center justify-center rounded-lg bg-transparent py-36 shadow-lg md:py-48">
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <img src="/Swirl.png" alt="" className='w-full h-full pointer-events-none select-none object-cover object-center' />
+                    <img src="/Swirl.png" alt="BACKGROUND_IMAGE" className='w-full h-full pointer-events-none select-none object-cover object-center' />
                 </div>
                 <div className="relative flex flex-col items-center p-4">
                     <h1 className="mb-3 text-center text text-5xl font-bold text-white sm:text-4xl md:text-5xl">Shorten Your Loooong Links :)</h1>

@@ -6,7 +6,7 @@ export default function Analyics() {
     const [data, setdata] = useState([]);
 
     const getApiData = async () => {
-        const { data } = await axios.get('http://localhost:8000/analytics')
+        const { data } = await axios.get(import.meta.env.VITE_ANALYTICS)
         setdata(data);
     }
 
@@ -19,7 +19,7 @@ export default function Analyics() {
             <div className="w-full flex justify-start md:justify-start items-start md:items-center h-screen flex-col overflow-y-hidden">
                 {data.length > 0 ? <Table data={data} /> : (
                     <div className="">
-                     <h3>Sorry, you don't add any links</h3>
+                        <h3>Sorry, you don't add any links</h3>
                     </div>
                 )}
             </div>

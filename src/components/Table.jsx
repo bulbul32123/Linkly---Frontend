@@ -56,14 +56,14 @@ export default function Table({ data }) {
                                     scope="row"
                                     className="px-6 w-[24rem] py-5 font-medium whitespace-nowrap flex gap-3 items-center"
                                 >
-                                    <a href={`http://localhost:8000/shorten/${item?.shortId}`}>
-                                        http://localhost:8000/shorten/{item?.shortId}
+                                    <a href={`${import.meta.env.VITE_SHORTURL}${item?.shortId}`}>
+                                        {import.meta.env.VITE_SHORTURL + item?.shortId}
                                     </a>
                                     <span
-                                        className={`${copied[`http://localhost:8000/shorten/${item?.shortId}`] ? 'bounce' : ''} cursor-pointer`}
-                                        onClick={() => handleCopy(`http://localhost:8000/shorten/${item?.shortId}`)}
+                                        className={`${copied[`${import.meta.env.VITE_SHORTURL}${item?.shortId}`] ? 'bounce' : ''} cursor-pointer`}
+                                        onClick={() => handleCopy(`${import.meta.env.VITE_SHORTURL}${item?.shortId}`)}
                                     >
-                                        {!copied[`http://localhost:8000/shorten/${item?.shortId}`] ? <MdContentCopy size={20} /> : <LuCopyCheck size={20} />}
+                                        {!copied[`${import.meta.env.VITE_SHORTURL}${item?.shortId}`] ? <MdContentCopy size={20} /> : <LuCopyCheck size={20} />}
                                     </span>
                                 </th>
                                 <td className="px-6 w-[30rem] lg:overflow-y-hidden">
